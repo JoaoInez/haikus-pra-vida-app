@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> matches snapshots 1`] = `
+<RNCAppearanceProvider
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`<Home /> matches snapshots 2`] = `
+<RNCAppearanceProvider
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#0a0a0a",
+        "flex": 1,
+        "justifyContent": "space-between",
+        "paddingVertical": 80,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontFamily": "UnifrakturMaguntia",
+          "fontSize": 40,
+          "textAlign": "center",
+        }
+      }
+    >
+      Haikus p'ra Vida
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "position": "relative",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 18,
+          }
+        }
+      >
+        Testa-me a sanidade
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 18,
+          }
+        }
+      >
+        Este lixo falha sempre
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 18,
+          }
+        }
+      >
+        Quero desistir
+      </Text>
+      <View
+        style={
+          Object {
+            "alignSelf": "center",
+            "flexDirection": "row",
+            "marginTop": 20,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 50,
+              "justifyContent": "center",
+              "opacity": 1,
+              "padding": 10,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "borderRadius": 50,
+          "marginTop": 10,
+          "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 18,
+          }
+        }
+      >
+        Demonimiza
+      </Text>
+    </View>
+  </View>
+</RNCAppearanceProvider>
+`;
