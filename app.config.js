@@ -17,6 +17,11 @@ export default {
     },
     assetBundlePatterns: ["**/*"],
     userInterfaceStyle: "automatic",
+    android: {
+      config: {
+        googleMobileAdsAppId: process.env.ADS_APP_ID,
+      },
+    },
     ios: {
       supportsTablet: true,
     },
@@ -25,6 +30,7 @@ export default {
     },
     extra: {
       graphqlURI: process.env.GRAPHQL_URI,
+      adsUnitID: process.env.ADS_UNIT_ID,
     },
   },
 };

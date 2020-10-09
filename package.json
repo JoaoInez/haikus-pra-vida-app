@@ -1,10 +1,10 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "yarn gentypes && expo start",
-    "android": "yarn gentypes && expo start --android",
-    "ios": "yarn gentypes && expo start --ios",
-    "web": "yarn gentypes && expo start --web",
+    "start": "yarn gen:types && expo start",
+    "android": "yarn gen:types && expo start --android",
+    "ios": "yarn gen:types && expo start --ios",
+    "web": "yarn gen:types && expo start --web",
     "test": "jest -u",
     "test:dev": "jest -u -o --watch --coverage=false",
     "eject": "expo eject",
@@ -15,6 +15,7 @@
     "@apollo/client": "^3.2.0",
     "dotenv": "^8.2.0",
     "expo": "~38.0.8",
+    "expo-ads-admob": "~8.2.1",
     "expo-constants": "~9.1.1",
     "expo-font": "~8.2.1",
     "expo-status-bar": "^1.0.2",
