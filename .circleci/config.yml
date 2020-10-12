@@ -6,44 +6,12 @@ executors:
     working_directory: ~/expo-project
     environment:
       YARN_CACHE_FOLDER: ~/yarn_cache
-  android:
-    resource_class: medium
-    docker:
-      - image: dsokal/expo-turtle-android
-    working_directory: ~/expo-project
-    environment:
-      EXPO_SDK_VERSION: 39.0.0
-      TURTLE_VERSION: 0.18.5
-      PLATFORM: android
-      YARN_CACHE_FOLDER: ~/yarn_cache
 commands:
   add_yarn_binaries_to_path:
     steps:
       - run:
           name: Add yarn binaries path to $PATH
           command: echo 'export PATH=~/.yarn/bin:$PATH' >> $BASH_ENV
-  determine_turtle_cache_key_component:
-    steps:
-      - run:
-          name: Determine Turtle cache key component
-          command: echo $TURTLE_VERSION $PLATFORM > /tmp/turtle-version-platform
-  restore_turtle_cache:
-    steps:
-      - restore_cache:
-          keys:
-            - cache-turtle-cli-{{ checksum "/tmp/turtle-version-platform" }}
-  save_turtle_cache:
-    steps:
-      - save_cache:
-          paths:
-            - ~/.turtle
-            - ~/yarn_cache
-          key: cache-turtle-cli-{{ checksum "/tmp/turtle-version-platform" }}
-  setup_turtle:
-    steps:
-      - run:
-          name: Setting up environment for Turtle
-          command: turtle setup:$PLATFORM --sdk-version $EXPO_SDK_VERSION
   restore_yarn_cache:
     parameters:
       platform:
@@ -66,22 +34,22 @@ jobs:
     executor: js
     steps:
       - checkout
-      - add_yarn_binaries_to_path
       - restore_yarn_cache:
           platform: linux
       - run:
           name: Installing expo-cli
           command: yarn global add expo-cli
+      - run: yarn
+      - save_yarn_cache:
+          platform: linux
+      - add_yarn_binaries_to_path
       - run:
           name: Publishing Expo app
           command: |
             expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
-            yarn
             expo publish
-      - save_yarn_cache:
-          platform: linux
   build_android_aab:
-    executor: android
+    executor: js
     steps:
       - checkout
       - restore_yarn_cache:
@@ -90,25 +58,11 @@ jobs:
       - save_yarn_cache:
           platform: linux
       - add_yarn_binaries_to_path
-      - determine_turtle_cache_key_component
-      - restore_turtle_cache
-      - run:
-          name: Installing gulp-cli & turtle-cli
-          command: yarn global add gulp-cli turtle-cli@$TURTLE_VERSION
-      - setup_turtle
-      - save_turtle_cache
       - run:
           name: Building Expo standalone app
           command: |
-            echo $EXPO_ANDROID_KEYSTORE_BASE64 > expo-project.jks.base64
-            base64 --decode expo-project.jks.base64 > expo-project.jks
-            turtle build:android \
-              --keystore-path ./expo-project.jks \
-              --keystore-alias $EXPO_ANDROID_KEYSTORE_ALIAS \
-              --type app-bundle \
-              -o ~/expo-project.aab
-      - store_artifacts:
-          path: ~/expo-project.aab
+            expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
+            expo build:android -t app-bundle
 workflows:
   version: 2
   builds:
@@ -118,5 +72,6 @@ workflows:
             branches:
               only: master
       - build_android_aab:
-          requires:
-            - publish_app
+          filters:
+            branches:
+              only: master
