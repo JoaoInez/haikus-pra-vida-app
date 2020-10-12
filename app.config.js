@@ -2,7 +2,7 @@ import "dotenv/config";
 
 export default {
   expo: {
-    name: "haikus-para-a-vida",
+    name: "Haikus P'ra Vida",
     slug: "haikus-para-a-vida",
     version: "1.0.0",
     orientation: "portrait",
@@ -18,6 +18,8 @@ export default {
     assetBundlePatterns: ["**/*"],
     userInterfaceStyle: "automatic",
     android: {
+      package: "com.demonimo.haikuspravida",
+      versionCode: 1,
       config: {
         googleMobileAdsAppId: process.env.ADS_APP_ID,
       },
@@ -31,6 +33,19 @@ export default {
     extra: {
       graphqlURI: process.env.GRAPHQL_URI,
       adsUnitID: process.env.ADS_UNIT_ID,
+      sentryDSN: process.env.SENTRY_DSN,
+    },
+    hooks: {
+      postPublish: [
+        {
+          file: "sentry-expo/upload-sourcemaps",
+          config: {
+            organization: "joao-inez",
+            project: "haikus-pra-vida",
+            authToken: process.env.SENTRY_AUTH_TOKEN,
+          },
+        },
+      ],
     },
   },
 };
