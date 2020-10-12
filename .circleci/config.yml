@@ -54,6 +54,9 @@ jobs:
       - checkout
       - restore_yarn_cache:
           platform: linux
+      - run:
+          name: Installing expo-cli
+          command: yarn global add expo-cli
       - run: yarn
       - save_yarn_cache:
           platform: linux
