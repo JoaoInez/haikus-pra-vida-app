@@ -16,6 +16,8 @@ describe("<Home />", () => {
       </MockedProvider>
     );
 
+    expect(tree).toMatchSnapshot();
+
     await waitFor(() => {});
 
     expect(tree).toMatchSnapshot();

@@ -7,6 +7,16 @@ exports[`<Home /> matches snapshots 1`] = `
       "flex": 1,
     }
   }
+/>
+`;
+
+exports[`<Home /> matches snapshots 2`] = `
+<RNCAppearanceProvider
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <View
     style={
