@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  node: "circleci/node@4.1.0"
 executors:
   js:
     docker:
@@ -7,12 +9,12 @@ executors:
     environment:
       YARN_CACHE_FOLDER: ~/yarn_cache
 commands:
-  add_yarn_binaries_to_path:
+  add-yarn-binaries-to-path:
     steps:
       - run:
           name: Add yarn binaries path to $PATH
           command: echo 'export PATH=~/.yarn/bin:$PATH' >> $BASH_ENV
-  restore_yarn_cache:
+  restore-yarn-cache:
     parameters:
       platform:
         type: string
@@ -20,7 +22,7 @@ commands:
       - restore_cache:
           keys:
             - cache-yarn-<< parameters.platform >>-{{ checksum "package.json" }}
-  save_yarn_cache:
+  save-yarn-cache:
     parameters:
       platform:
         type: string
@@ -30,51 +32,69 @@ commands:
             - ~/yarn_cache
           key: cache-yarn-<< parameters.platform >>-{{ checksum "package.json" }}
 jobs:
-  publish_app:
+  test-app:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Run tests
+          command: yarn test
+      - store_test_results:
+          path: ./test-results
+      - store_artifacts:
+          path: ./coverage
+  publish-app:
     executor: js
     steps:
       - checkout
-      - restore_yarn_cache:
+      - restore-yarn-cache:
           platform: linux
       - run:
           name: Installing expo-cli
           command: yarn global add expo-cli
       - run: yarn
-      - save_yarn_cache:
+      - save-yarn-cache:
           platform: linux
-      - add_yarn_binaries_to_path
+      - add-yarn-binaries-to-path
       - run:
           name: Publishing Expo app
           command: |
             expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
             expo publish
-  build_android_aab:
+  build-android-aab:
     executor: js
     steps:
       - checkout
-      - restore_yarn_cache:
+      - restore-yarn-cache:
           platform: linux
       - run:
           name: Installing expo-cli
           command: yarn global add expo-cli
       - run: yarn
-      - save_yarn_cache:
+      - save-yarn-cache:
           platform: linux
-      - add_yarn_binaries_to_path
+      - add-yarn-binaries-to-path
       - run:
           name: Building Expo standalone app
           command: |
             expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
-            expo build:android -t app-bundle
+            expo build:android -t app-bundle --no-wait
 workflows:
   version: 2
   builds:
     jobs:
-      - publish_app:
+      - test-app
+      - publish-app:
+          requires:
+            - test-app
           filters:
             branches:
               only: master
-      - build_android_aab:
+      - build-android-aab:
+          requires:
+            - test-app
           filters:
             branches:
               only: master

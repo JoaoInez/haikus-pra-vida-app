@@ -5,7 +5,7 @@
     "android": "yarn gen:types && expo start --android",
     "ios": "yarn gen:types && expo start --ios",
     "web": "yarn gen:types && expo start --web",
-    "test": "jest -u",
+    "test": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
     "test:dev": "jest -u -o --watch --coverage=false",
     "eject": "expo eject",
     "gen:types": "apollo client:codegen --addTypename --endpoint=http://localhost:4000/graphql --globalTypesFile=src/types/graphqlGlobalTypesFile.ts --includes=src/**/*.tsx --outputFlat --tagName=gql --target=typescript src/types",
@@ -40,6 +40,7 @@
     "babel-jest": "^26.3.0",
     "husky": "^4.3.0",
     "jest-expo": "^38.0.2",
+    "jest-junit": "^12.0.0",
     "react-test-renderer": "^16.13.1",
     "typescript": "~3.9.5"
   },
@@ -48,5 +49,9 @@
     "hooks": {
       "pre-commit": "tsc --noEmit"
     }
+  },
+  "jest-junit": {
+    "outputDirectory": "./test-results",
+    "outputName": "results.xml"
   }
 }
