@@ -41,9 +41,7 @@ const Home = () => {
   const onShare = async () => {
     try {
       await Share.share({
-        message: `${data?.haiku?.topVerse}\
-        ${data?.haiku?.middleVerse}\
-        ${data?.haiku?.bottomVerse}`,
+        message: `${data?.haiku?.topVerse}\n${data?.haiku?.middleVerse}\n${data?.haiku?.bottomVerse}`,
       });
     } catch (error) {}
   };
