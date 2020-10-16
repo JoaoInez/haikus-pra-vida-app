@@ -12,8 +12,8 @@ export const defaultStyles = StyleSheet.create({
   },
   loadingContainer: {
     position: "absolute",
-    top: 20,
-    right: 20,
+    top: 25,
+    right: 25,
   },
 });
 
