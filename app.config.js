@@ -5,6 +5,7 @@ export default {
     name: "Haikus P'ra Vida",
     slug: "haikus-para-a-vida",
     version: "1.0.0",
+    privacy: "public",
     orientation: "portrait",
     icon: "./src/assets/icon.png",
     splash: {
