@@ -1,0 +1,1 @@
+# Haikus P'ra Vida - App &middot; [![CircleCI Status](https://circleci.com/gh/JoaoInez/haikus-pra-vida-app.svg?style=shield&circle-token=:circle-token)](https://app.circleci.com/pipelines/github/JoaoInez/haikus-pra-vida-app)
