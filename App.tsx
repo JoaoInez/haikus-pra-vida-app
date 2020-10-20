@@ -1,17 +1,17 @@
 import React from "react";
-import { View } from "react-native";
+// import { View } from "react-native";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { AppearanceProvider } from "react-native-appearance";
-import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
+// import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
 import * as Sentry from "sentry-expo";
 import Constants from "expo-constants";
 
 import Home from "./src/components/Home";
 
-__DEV__ &&
-  (async () => {
-    await setTestDeviceIDAsync("EMULATOR");
-  })();
+// __DEV__ &&
+//   (async () => {
+//     await setTestDeviceIDAsync("EMULATOR");
+//   })();
 
 Sentry.init({
   dsn: Constants.manifest.extra.sentryDSN,
@@ -28,13 +28,13 @@ const App = () => (
   <ApolloProvider client={client}>
     <AppearanceProvider>
       <Home />
-      <View style={{ display: "flex", alignItems: "center" }}>
+      {/* <View style={{ display: "flex", alignItems: "center" }}>
         <AdMobBanner
           bannerSize="banner"
           adUnitID={Constants.manifest.extra.adsUnitID}
           servePersonalizedAds
         />
-      </View>
+      </View> */}
     </AppearanceProvider>
   </ApolloProvider>
 );

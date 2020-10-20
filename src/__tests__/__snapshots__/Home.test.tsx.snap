@@ -29,18 +29,100 @@ exports[`<Home /> matches snapshots 2`] = `
       }
     }
   >
-    <Text
-      style={
-        Object {
-          "color": "#fff",
-          "fontFamily": "UnifrakturMaguntia",
-          "fontSize": 40,
-          "textAlign": "center",
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontFamily": "UnifrakturMaguntia",
+            "fontSize": 40,
+            "textAlign": "center",
+          }
         }
-      }
-    >
-      Haikus p'ra Vida
-    </Text>
+      >
+        Haikus p'ra Vida
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#FF006E",
+            "fontFamily": "UnifrakturMaguntia",
+            "fontSize": 40,
+            "left": 2,
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 2,
+            "zIndex": -1,
+          }
+        }
+      >
+        Haikus p'ra Vida
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#2A9D8F",
+            "fontFamily": "UnifrakturMaguntia",
+            "fontSize": 40,
+            "left": 4,
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 4,
+            "zIndex": -2,
+          }
+        }
+      >
+        Haikus p'ra Vida
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#FFBE0B",
+            "fontFamily": "UnifrakturMaguntia",
+            "fontSize": 40,
+            "left": 6,
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 6,
+            "zIndex": -3,
+          }
+        }
+      >
+        Haikus p'ra Vida
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#3A86FF",
+            "fontFamily": "UnifrakturMaguntia",
+            "fontSize": 40,
+            "left": 8,
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 8,
+            "zIndex": -4,
+          }
+        }
+      >
+        Haikus p'ra Vida
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#8338EC",
+            "fontFamily": "UnifrakturMaguntia",
+            "fontSize": 40,
+            "left": 10,
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 10,
+            "zIndex": -5,
+          }
+        }
+      >
+        Haikus p'ra Vida
+      </Text>
+    </View>
     <View
       style={
         Object {

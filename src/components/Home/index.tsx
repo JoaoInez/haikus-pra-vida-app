@@ -73,7 +73,14 @@ const Home = () => {
           />
         </View>
       )}
-      <Text style={getThemeStyles().title}>Haikus p'ra Vida</Text>
+      <View>
+        <Text style={getThemeStyles().title}>Haikus p'ra Vida</Text>
+        <Text style={defaultStyles.fade1}>Haikus p'ra Vida</Text>
+        <Text style={defaultStyles.fade2}>Haikus p'ra Vida</Text>
+        <Text style={defaultStyles.fade3}>Haikus p'ra Vida</Text>
+        <Text style={defaultStyles.fade4}>Haikus p'ra Vida</Text>
+        <Text style={defaultStyles.fade5}>Haikus p'ra Vida</Text>
+      </View>
       <View style={defaultStyles.textContainer}>
         {data?.haiku && (
           <>

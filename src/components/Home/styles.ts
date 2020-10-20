@@ -1,6 +1,53 @@
 import { StyleSheet } from "react-native";
 
+const fade = StyleSheet.create({
+  default: {
+    fontFamily: "UnifrakturMaguntia",
+    fontSize: 40,
+    textAlign: "center",
+    position: "absolute",
+  }
+})
+
 export const defaultStyles = StyleSheet.create({
+  titleContainer: {
+    position: "relative"
+  },
+  fade1: {
+    ...fade.default,
+    color: "#FF006E",
+    zIndex: -1,
+    top: 2,
+    left: 2,
+  },
+  fade2: {
+    ...fade.default,
+    color: "#2A9D8F",
+    zIndex: -2,
+    top: 4,
+    left: 4,
+  },
+  fade3: {
+    ...fade.default,
+    color: "#FFBE0B",
+    zIndex: -3,
+    top: 6,
+    left: 6,
+  },
+  fade4: {
+    ...fade.default,
+    color: "#3A86FF",
+    zIndex: -4,
+    top: 8,
+    left: 8,
+  },
+  fade5: {
+    ...fade.default,
+    color: "#8338EC",
+    zIndex: -5,
+    top: 10,
+    left: 10,
+  },
   textContainer: {
     alignItems: "flex-start",
     position: "relative",
