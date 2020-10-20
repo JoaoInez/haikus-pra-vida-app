@@ -21,9 +21,9 @@ export default {
     android: {
       package: "com.demonimo.haikuspravida",
       versionCode: 1,
-      config: {
-        googleMobileAdsAppId: process.env.ADS_APP_ID,
-      },
+      // config: {
+      //   googleMobileAdsAppId: process.env.ADS_APP_ID,
+      // },
     },
     ios: {
       supportsTablet: true,
@@ -33,7 +33,7 @@ export default {
     },
     extra: {
       graphqlURI: process.env.GRAPHQL_URI,
-      adsUnitID: process.env.ADS_UNIT_ID,
+      // adsUnitID: process.env.ADS_UNIT_ID,
       sentryDSN: process.env.SENTRY_DSN,
     },
     hooks: {
