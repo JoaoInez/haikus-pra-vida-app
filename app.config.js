@@ -21,6 +21,7 @@ export default {
     android: {
       package: "com.demonimo.haikuspravida",
       versionCode: 1,
+      permissions: [],
       // config: {
       //   googleMobileAdsAppId: process.env.ADS_APP_ID,
       // },
