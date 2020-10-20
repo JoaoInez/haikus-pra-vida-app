@@ -7,6 +7,8 @@ import Home from "../components/Home";
 import { defaultMocks } from "../__mocks__/apollo";
 
 describe("<Home />", () => {
+  jest.setTimeout(30000);
+
   it("matches snapshots", async () => {
     const tree = render(
       <MockedProvider mocks={defaultMocks} addTypename={false}>
